@@ -157,7 +157,8 @@ TEMPLATES = [
 WSGI_APPLICATION = 'backend.wsgi.application'
 
 CORS_ORIGIN_WHITELIST = [
-    'https://expressielts.uz'
+    'https://expressielts.uz',
+    'https://backend.expressielts.uz'
 ]
 CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_CREDENTIALS = True
