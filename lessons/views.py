@@ -35,7 +35,7 @@ class LessonsListApiView(APIView):
             teacher__yuid=teacher, lesson_type__title=lesson_type)
         serialized_lessons = serialize("json", lessons)
         for i in payments:
-            if MerchatTransactionsModel.objects.filter(order_id=i.order_id, state=2) or ClickTransaction.objects.filter(id=i.order_id, status="confirmed"):
+            if MerchatTransactionsModel.objects.filter(order_id=i.order_id, state=2).exists() or ClickTransaction.objects.filter(id=i.order_id, status="confirmed"):
                 return Response({
                     'data': serialized_lessons,
                     "message": "Paid",
